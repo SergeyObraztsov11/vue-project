@@ -1,12 +1,16 @@
 <script setup>
-import {useTestStore} from "@stores/testStore.js"
+import { useTestStore } from "@stores/testStore.js";
+import { ref } from "vue";
 const authStore = useTestStore();
+const token = ref(null)
 
 </script>
 
 <template>
     <div>
-        token: {{authStore.getToken()}}
+        <h1 v-if="token.value">token: {{ authStore.getToken() }}</h1>
+        <h1 v-else>О, нет 😢</h1>
+
         <button @click="authStore.logout">Logout</button>
         <router-view />
     </div>

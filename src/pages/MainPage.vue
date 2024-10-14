@@ -15,9 +15,5 @@
 </template>
 
 <style scoped>
-.header {
-    background-color: rgb(233, 197, 255);
-    padding: 10px;
-    margin: 10px;
-}
+
 </style>

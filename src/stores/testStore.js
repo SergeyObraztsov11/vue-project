@@ -2,24 +2,21 @@ import { ref, computed } from "vue";
 import axios from "axios";
 import { defineStore } from "pinia";
 
-const URL = "http://localhost:3000"
+const URL = "http://localhost:3000";
 
 export const useTestStore = defineStore("test", () => {
-
     const registrationReq = async ({ login, password }) => {
-        try {
-            const response = await axios.post(URL + "/api/register", {
-                login,
-                password,
-            });
-        } catch (error) {
+        const response = await axios.post(URL + "/api/register", {
+            login,
+            password,
+        });
 
-        }
+        return response
     };
 
     const logout = () => {
-        localStorage.removeItem('token');
-    }
+        localStorage.removeItem("token");
+    };
 
     const loginReq = async ({ login, password }) => {
         try {
@@ -28,14 +25,12 @@ export const useTestStore = defineStore("test", () => {
                 password,
             });
             localStorage.setItem("token", response.data.token);
-        } catch (error) {
-
-        }
+        } catch (error) {}
     };
 
     const getToken = () => {
-        return localStorage.getItem("token")
-    }
-    
-    return { loginReq, logout, registrationReq, getToken};
+        return localStorage.getItem("token");
+    };
+
+    return { loginReq, logout, registrationReq, getToken };
 });

@@ -1,22 +1,17 @@
 <script setup>
 import { ref } from "vue";
-import {useTestStore} from "@stores/testStore.js"
+import { useTestStore } from "@stores/testStore.js";
 
 const authStore = useTestStore();
 const loginValue = ref("");
 const passwordValue = ref("");
 
 const submitForm = async () => {
-    if (loginValue.value.length >= 8 && passwordValue.value.length >= 8) {
-        await authStore.registrationReq({
-            login: loginValue.value,
-            password: passwordValue.value
-        });
-        alert("Успешная регистрация")
-    }
-    else {
-        alert("Ошибка")
-    }
+    const response = await authStore.registrationReq({
+        login: loginValue.value,
+        password: passwordValue.value,
+    });
+    console.log(response);
 };
 </script>
 
