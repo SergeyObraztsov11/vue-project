@@ -2,11 +2,13 @@ import { ref, computed } from "vue";
 import axios from "axios";
 import { defineStore } from "pinia";
 
-const URL = "http://localhost:3000";
+const instance = axios.create({
+    baseURL: "http://localhost:3000/api",
+});
 
 export const useTestStore = defineStore("test", () => {
     const registrationReq = async ({ login, password }) => {
-        const response = await axios.post("/api/register", {
+        const response = await instance.post("/api/register", {
             login,
             password,
         });
@@ -16,7 +18,7 @@ export const useTestStore = defineStore("test", () => {
 
     const loginReq = async ({ login, password }) => {
         try {
-            const response = await axios.post("/api/login", {
+            const response = await instance.post("/api/login", {
                 login,
                 password,
             });
