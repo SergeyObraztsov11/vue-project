@@ -8,7 +8,7 @@ const instance = axios.create({
 
 export const useTestStore = defineStore("test", () => {
     const registrationReq = async ({ login, password }) => {
-        const response = await instance.post("/api/register", {
+        const response = await instance.post("/register", {
             login,
             password,
         });
@@ -18,7 +18,7 @@ export const useTestStore = defineStore("test", () => {
 
     const loginReq = async ({ login, password }) => {
         try {
-            const response = await instance.post("/api/login", {
+            const response = await instance.post("/login", {
                 login,
                 password,
             });
