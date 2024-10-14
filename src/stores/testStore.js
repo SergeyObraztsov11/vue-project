@@ -11,11 +11,7 @@ export const useTestStore = defineStore("test", () => {
             password,
         });
 
-        return response
-    };
-
-    const logout = () => {
-        localStorage.removeItem("token");
+        return response;
     };
 
     const loginReq = async ({ login, password }) => {
@@ -28,6 +24,10 @@ export const useTestStore = defineStore("test", () => {
         } catch (error) {}
     };
 
+    const logout = () => {
+        localStorage.removeItem("token");
+    };
+    
     const getToken = () => {
         return localStorage.getItem("token");
     };

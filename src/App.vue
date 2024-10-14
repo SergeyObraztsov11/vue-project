@@ -3,9 +3,6 @@ import { useTestStore } from "@stores/testStore.js";
 import {  ref } from "vue";
 const authStore = useTestStore();
 const token = ref(null)
-
-
-
 </script>
 
 <template>

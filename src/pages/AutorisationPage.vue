@@ -7,11 +7,10 @@ const loginValue = ref("");
 const passwordValue = ref("");
 
 const submitForm = async () => {
-    const response = await authStore.loginReq({
+    await authStore.loginReq({
         login: loginValue.value,
         password: passwordValue.value,
     });
-    console.log(response);
 };
 </script>
 
