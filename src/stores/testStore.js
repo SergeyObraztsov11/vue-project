@@ -6,7 +6,7 @@ const URL = "http://localhost:3000";
 
 export const useTestStore = defineStore("test", () => {
     const registrationReq = async ({ login, password }) => {
-        const response = await axios.post(URL + "/api/register", {
+        const response = await axios.post("/api/register", {
             login,
             password,
         });
@@ -16,7 +16,7 @@ export const useTestStore = defineStore("test", () => {
 
     const loginReq = async ({ login, password }) => {
         try {
-            const response = await axios.post(URL + "/api/login", {
+            const response = await axios.post("/api/login", {
                 login,
                 password,
             });
@@ -27,7 +27,7 @@ export const useTestStore = defineStore("test", () => {
     const logout = () => {
         localStorage.removeItem("token");
     };
-    
+
     const getToken = () => {
         return localStorage.getItem("token");
     };
